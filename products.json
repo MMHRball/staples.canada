@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "name": "iPhone 13 pro",
+        "description": "iPhone 13 features a 6.1-inch Super Retina XDR display, A15 Bionic chip, 5G capability, and a dual-camera system with improved low-light performance.",
+        "price": 240.99,
+        "image": "iphone13.jpeg"
+    },
+    {
+        "id": 2,
+        "name": "iPhone 14 pro",
+        "description": "iPhone 14 comes with a 6.1-inch OLED display, A15 Bionic chip, enhanced low-light camera, and crash detection feature for safety.",
+        "price": 390.99,
+        "image": "iphone14.jpg"
+    },
+    {
+        "id": 3,
+        "name": "iPhone 15 Pro Max",
+        "description": "The iPhone 15 Pro Max features a 6.7-inch display, A17 Pro chip, titanium body, and a 5x telephoto camera for enhanced zoom capabilities.",
+        "price": 799.99,
+        "image": "iphone15.jpg"
+    },
+    {
+        "id": 4,
+        "name": "MacBook Air M1",
+        "description": "Apple MacBook Air M1 features a 13.3-inch Retina display, M1 chip, 8GB RAM, and 256GB SSD with up to 18 hours of battery life.",
+        "price": 899.99,
+        "image": "macbook-air.jpg"
+    },
+    {
+        "id": 5,
+        "name": "MacBook Pro M2",
+        "description": "Apple MacBook Pro M2 offers a 13.3-inch Retina display, M2 chip, 16GB RAM, and 512GB SSD. Perfect for creative professionals.",
+        "price": 1099.99,
+        "image": "macbook-pro.jpg"
+    },
+    {
+        "id": 6,
+        "name": "iPad Pro",
+        "description": "iPad Pro features a 12.9-inch Liquid Retina XDR display, M2 chip, Apple Pencil support, and up to 2TB of storage.",
+        "price": 899.99,
+        "image": "ipad-pro.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Apple Watch Series 9",
+        "description": "Apple Watch Series 9 features a 45mm Retina display, S9 SiP chip, improved health tracking, and double-tap gesture control.",
+        "price": 350.99,
+        "image": "watch9.jpg"
+    },
+    {
+        "id": 8,
+        "name": "AirPods Pro",
+        "description": "AirPods Pro (2nd gen) offer active noise cancellation, adaptive transparency, improved battery life, and MagSafe charging.",
+        "price": 270.99,
+        "image": "airpods-pro.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Samsung Galaxy S23",
+        "description": "Samsung Galaxy S23 Ultra features a 6.8-inch AMOLED display, Snapdragon 8 Gen 2 chip, 200MP camera, and S Pen support.",
+        "price": 560.00,
+        "image": "galaxy-s23.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Samsung Galaxy Tab S9",
+        "description": "Galaxy Tab S9 offers an 11-inch Dynamic AMOLED 2X display, Snapdragon 8 Gen 2 chip, and IP68 water resistance.",
+        "price": 760.00,
+        "image": "galaxy-tab-s9.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Google Pixel 8",
+        "description": "Google Pixel 8 features a 6.2-inch OLED display, Tensor G3 chip, improved camera performance, and AI-powered photo editing.",
+        "price": 945.00,
+        "image": "pixel-8.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Sony PlayStation 5",
+        "description": "PlayStation 5 offers ultra-fast loading, ray tracing, 4K gaming, and a new DualSense controller with haptic feedback.",
+        "price": 585.99,
+        "image": "ps5.jpg"
+    }
+]

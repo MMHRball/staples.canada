@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Details</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* Стиль для формы */
+        .shipping-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .product-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        /* Стилизация кнопки */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:disabled {
+            background-color: #d3d3d3;
+            cursor: not-allowed;
+        }
+
+        /* Стиль для формы доставки */
+        .shipping-details input,
+        .shipping-details select {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .shipping-details {
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .shipping-details h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .shipping-details label {
+            font-size: 16px;
+            margin: 5px 0;
+            display: block;
+            color: #555;
+        }
+
+        .color-options {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .color-options input {
+            margin: 0 10px;
+        }
+
+        /* Стиль для сообщения о доставке */
+        .delivery-confirmation {
+            background-color: #e1f7e1;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #c8e6c9;
+            color: #4caf50;
+            font-size: 18px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <button class="menu-button" onclick="toggleMenu()">Menu</button>
+        <h1>Shipping Details for <%= product.name %>
+        </h1>
+    </header>
+
+    <main class="shipping-form">
+        <div class="product-container">
+            <!-- Картинка продукта -->
+            <div class="product-image">
+                <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+            </div>
+
+            <!-- Форма доставки -->
+            <div class="shipping-details">
+                <h2>Enter Shipping Information</h2>
+                <form id="shippingForm" action="/complete-shipping" method="POST">
+                    <input type="hidden" name="productId" value="<%= product.id %>">
+
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required>
+
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required>
+
+                    <label for="postalCode">Postal Code:</label>
+                    <input type="text" id="postalCode" name="postalCode" required>
+
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country" required>
+
+                    <label for="color">Select Color:</label>
+                    <div class="color-options">
+                        <input type="radio" id="black" name="color" value="Black" checked>
+                        <label for="black" class="color-label black">Black</label>
+
+                        <input type="radio" id="gray" name="color" value="Gray">
+                        <label for="gray" class="color-label gray">Gray</label>
+
+                        <input type="radio" id="red" name="color" value="Red">
+                        <label for="red" class="color-label red">Red</label>
+                    </div>
+
+                    <button id="completeShippingBtn" type="submit">Complete Shipping</button>
+                </form>
+                <div id="confirmationMessage" class="delivery-confirmation">
+                    Your shipping is already confirmed! Your package will arrive within 5-8 business days.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Функция для отображения меню
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+
+        // Проверка, была ли уже отправлена форма
+        let isShippingCompleted = false;
+
+        document.getElementById('shippingForm').onsubmit = function (event) {
+            if (isShippingCompleted) {
+                // Отменяем отправку формы, если доставка уже оформлена
+                event.preventDefault();
+                document.getElementById('confirmationMessage').style.display = 'block';
+                document.getElementById('completeShippingBtn').disabled = true;
+            } else {
+                // Если форма не была отправлена, продолжаем отправку
+                isShippingCompleted = true;
+            }
+        };
+    </script>
+</body>
+
+</html>

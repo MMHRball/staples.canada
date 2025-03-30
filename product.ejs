@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= product.name %>
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header>
+        <button class="menu-button" onclick="toggleMenu()">Menu</button>
+        <h1>Welcome to the Staples</h1>
+    </header>
+
+    <main class="product-page">
+        <div class="product-container">
+            <!-- Картинка слева -->
+            <div class="product-image">
+                <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+            </div>
+
+            <!-- Информация и кнопки справа -->
+            <div class="product-details">
+                <h2>
+                    <%= product.name %>
+                </h2>
+                <p class="product-description">
+                    <%= product.description %>
+                </p>
+                <p class="product-price">$<%= product.price %>
+                </p>
+
+                <form action="/create-checkout-session" method="POST">
+                    <input type="hidden" name="productId" value="<%= product.id %>">
+                    <label for="color">Select Color:</label>
+                    <div class="color-options">
+                        <input type="radio" id="black" name="color" value="Black" checked>
+                        <label for="black" class="color-label black">Black</label>
+
+                        <input type="radio" id="gray" name="color" value="Gray">
+                        <label for="gray" class="color-label gray">Gray</label>
+
+                        <input type="radio" id="red" name="color" value="Red">
+                        <label for="red" class="color-label red">Red</label>
+                    </div>
+
+                    <button type="submit">Buy Now</button>
+                </form>
+                <a href="/complete-shipping/<%= product.id %>">
+                    <button>Complete Shipping</button>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+
+</html>

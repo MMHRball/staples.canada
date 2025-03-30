@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Staples Store</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header>
+        <button class="menu-button" onclick="toggleMenu()">Menu</button>
+        <h1>Order Confirmation</h1>
+    </header>
+
+    <main>
+        <h2>Thank you for your order, <%= name %>!</h2>
+
+        <p>Your order has been approved and will be shipped in <%= deliveryTime %>.</p>
+
+        <div class="order-details">
+            <h3>Order Details</h3>
+            <div class="product">
+                <img src="/images/<%= product.image %>" alt="<%= product.name %>" style="width: 100px;">
+                <div class="product-info">
+                    <h4>
+                        <%= product.name %> (<%= color %>)
+                    </h4>
+                    <p>
+                        <%= product.price %> CAD
+                    </p>
+                </div>
+            </div>
+
+            <h3>Shipping Information</h3>
+            <p><strong>Name:</strong>
+                <%= name %>
+            </p>
+            <p><strong>Address:</strong>
+                <%= address %>, <%= city %>, <%= postalCode %>, <%= country %>
+            </p>
+            <p>Your order will be shipped to this address and delivered within the next <%= deliveryTime %>.</p>
+        </div>
+
+        <h3>Shipping Details</h3>
+        <p>We aim to deliver your products within the specified delivery time. If there are any delays, you will be
+            notified via email. In the meantime, you can always track your order on our website.</p>
+        <p>If you have any questions, feel free to contact our support team at
+            <strong>support@staplesstore.com</strong>.</p>
+
+        <h3>Delivery Instructions</h3>
+        <p>Once your order is shipped, you will receive a tracking number via email. Please allow 1-2 business days for
+            processing before your order ships. We use trusted delivery partners to ensure your product arrives safely
+            and on time.</p>
+    </main>
+
+    <div class="menu" id="menu">
+        <ul class="menu-list">
+            <li><a href="#">Laptops</a></li>
+            <li><a href="#">Phones</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Tablets</a></li>
+            <li><a href="#">Offers</a></li>
+            <li><a href="#">Gaming</a></li>
+            <li><a href="#">Smart Home</a></li>
+            <li><a href="#">TV & Audio</a></li>
+            <li><a href="#">Wearables</a></li>
+            <li><a href="#">Clearance</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+    </script>
+
+</body>
+
+</html>

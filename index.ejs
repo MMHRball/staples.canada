@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staples Store</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header>
+        <button class="menu-button" onclick="toggleMenu()">Menu</button>
+        <h1>Welcome to the Staples</h1>
+    </header>
+
+    <main>
+        <h2>Featured Products</h2>
+
+        <!-- Сетка товаров по 3 в ряд -->
+        <div class="products">
+            <% products.forEach(product=> { %>
+                <div class="product">
+                    <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+                    <div class="product-info">
+                        <h3>
+                            <%= product.name %>
+                        </h3>
+                        <p>$<%= product.price %>
+                        </p>
+                        <a href="/product/<%= product.id %>">View Details</a>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+    </main>
+
+    <!-- Навигационное меню -->
+    <div class="menu" id="menu">
+        <ul class="menu-list">
+            <li><a href="#">Laptops</a></li>
+            <li><a href="#">Phones</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Tablets</a></li>
+            <li><a href="#">Offers</a></li>
+            <li><a href="#">Gaming</a></li>
+            <li><a href="#">Smart Home</a></li>
+            <li><a href="#">TV & Audio</a></li>
+            <li><a href="#">Wearables</a></li>
+            <li><a href="#">Clearance</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+    </script>
+
+</body>
+
+</html>
